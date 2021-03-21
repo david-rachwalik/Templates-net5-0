@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Templates_net5_0.SqlDb.WebApp.Data;
 using Templates_net5_0.SqlDb.WebApp.Models;
 
-namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
+namespace Templates_net5_0.SqlDb.WebApp.Pages.Instructors
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
             _context = context;
         }
 
-        public Movie Movie { get; set; }
+        public Instructor Instructor { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movies.FirstOrDefaultAsync(m => m.ID == id);
+            Instructor = await _context.Instructors.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Movie == null)
+            if (Instructor == null)
             {
                 return NotFound();
             }

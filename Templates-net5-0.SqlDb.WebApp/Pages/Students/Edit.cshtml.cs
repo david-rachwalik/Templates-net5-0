@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Templates_net5_0.SqlDb.WebApp.Data;
 using Templates_net5_0.SqlDb.WebApp.Models;
 
-namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
+namespace Templates_net5_0.SqlDb.WebApp.Pages.Students
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public Student Student { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,48 +30,39 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movies.FirstOrDefaultAsync(m => m.ID == id);
+            Student = await _context.Students.FindAsync(id);
 
-            if (Movie == null)
+            if (Student == null)
             {
                 return NotFound();
             }
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var studentToUpdate = await _context.Students.FindAsync(id);
+
+            if (studentToUpdate == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Movie).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync<Student>(
+                studentToUpdate,
+                "student",
+                s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MovieExists(Movie.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
 
-        private bool MovieExists(int id)
+        private bool StudentExists(int id)
         {
-            return _context.Movies.Any(e => e.ID == id);
+            return _context.Students.Any(e => e.ID == id);
         }
     }
 }

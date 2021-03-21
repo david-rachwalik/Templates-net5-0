@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Hosting;
+using Templates_net5_0.SqlDb.WebApp.Data;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Templates_net5_0.SqlDb.WebApp.Models;
 using System;
 
 namespace Templates_net5_0.SqlDb.WebApp
@@ -13,22 +13,27 @@ namespace Templates_net5_0.SqlDb.WebApp
         {
             var host = CreateHostBuilder(args).Build();
 
+            CreateDbIfNotExists(host);
+
+            host.Run();
+        }
+
+        private static void CreateDbIfNotExists(IHost host)
+        {
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-
                 try
                 {
-                    SeedData.Initialize(services);
+                    var context = services.GetRequiredService<MainContext>();
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error occurred seeding the DB.");
+                    logger.LogError(ex, "An error occurred initializing the database.");
                 }
             }
-
-            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

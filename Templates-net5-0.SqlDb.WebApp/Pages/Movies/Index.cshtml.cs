@@ -30,11 +30,11 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
         public async Task OnGetAsync()
         {
             // Use LINQ to get list of genres.
-            IQueryable<string> genreQuery = from m in _context.Movie
+            IQueryable<string> genreQuery = from m in _context.Movies
                                             orderby m.Genre
                                             select m.Genre;
 
-            var movies = from m in _context.Movie
+            var movies = from m in _context.Movies
                          select m;
 
             if (!string.IsNullOrEmpty(SearchString))

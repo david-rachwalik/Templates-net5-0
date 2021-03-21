@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Templates_net5_0.SqlDb.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Templates_net5_0.SqlDb.WebApp.Data;
-using Templates_net5_0.SqlDb.WebApp.Models;
+using System.Threading.Tasks;
 
-namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
+namespace Templates_net5_0.SqlDb.WebApp.Pages.Courses
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +16,7 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public Course Course { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +25,12 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movies.FirstOrDefaultAsync(m => m.ID == id);
+            Course = await _context.Courses
+                .AsNoTracking()
+                .Include(c => c.Department)
+                .FirstOrDefaultAsync(m => m.CourseID == id);
 
-            if (Movie == null)
+            if (Course == null)
             {
                 return NotFound();
             }
@@ -45,11 +44,11 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
                 return NotFound();
             }
 
-            Movie = await _context.Movies.FindAsync(id);
+            Course = await _context.Courses.FindAsync(id);
 
-            if (Movie != null)
+            if (Course != null)
             {
-                _context.Movies.Remove(Movie);
+                _context.Courses.Remove(Course);
                 await _context.SaveChangesAsync();
             }
 

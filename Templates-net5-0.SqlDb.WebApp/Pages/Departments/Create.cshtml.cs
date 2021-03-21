@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Templates_net5_0.SqlDb.WebApp.Data;
 using Templates_net5_0.SqlDb.WebApp.Models;
 
-namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
+namespace Templates_net5_0.SqlDb.WebApp.Pages.Departments
 {
     public class CreateModel : PageModel
     {
@@ -21,11 +21,12 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
 
         public IActionResult OnGet()
         {
+        ViewData["InstructorID"] = new SelectList(_context.Instructors, "ID", "FirstMidName");
             return Page();
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public Department Department { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +36,7 @@ namespace Templates_net5_0.SqlDb.WebApp.Pages.Movies
                 return Page();
             }
 
-            _context.Movies.Add(Movie);
+            _context.Departments.Add(Department);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
