@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates-net5-0.Base.WebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates-net5-0.SqlDb.WebApp", "Templates-net5-0.SqlDb.WebApp\Templates-net5-0.SqlDb.WebApp.csproj", "{7BCA1EAA-F89A-4DDE-B52D-22C26C500338}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates-net5-0.Base.WebApi", "Templates-net5-0.Base.WebApi\Templates-net5-0.Base.WebApi.csproj", "{33A3D473-FEF9-40C1-8275-B28009442AFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +46,17 @@ Global
 		{7BCA1EAA-F89A-4DDE-B52D-22C26C500338}.Release|x64.Build.0 = Release|Any CPU
 		{7BCA1EAA-F89A-4DDE-B52D-22C26C500338}.Release|x86.ActiveCfg = Release|Any CPU
 		{7BCA1EAA-F89A-4DDE-B52D-22C26C500338}.Release|x86.Build.0 = Release|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Debug|x64.Build.0 = Debug|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Debug|x86.Build.0 = Debug|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|x64.ActiveCfg = Release|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|x64.Build.0 = Release|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|x86.ActiveCfg = Release|Any CPU
+		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
