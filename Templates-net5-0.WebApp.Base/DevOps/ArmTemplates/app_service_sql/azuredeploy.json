@@ -45,8 +45,10 @@
     // "appName": "[concat('app-', uniqueString(resourceGroup().id))]",
     //"appName": "[concat('app-', resourceGroup().name)]",
     "baseAppName": "[resourceGroup().name]",
-    "hostingPlanName": "[variables('baseAppName')]",
-    "appName": "[variables('baseAppName')]"
+    // https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules
+    // https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-string
+    "hostingPlanName": "[take(replace(variables('baseAppName'), '.', '-'), 40)]",
+    "appName": "[take(replace(variables('baseAppName'), '.', '-'), 60)]"
   },
   "resources": [
     {
