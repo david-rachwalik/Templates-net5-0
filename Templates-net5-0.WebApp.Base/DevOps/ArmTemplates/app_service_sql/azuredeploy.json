@@ -32,8 +32,6 @@
     },
     "linuxFxVersion": {
       "type": "string",
-      // az webapp list-runtimes --linux
-      // "defaultValue" : "DOTNET|5.0", // is apparently wrong, use template export
       "defaultValue": "DOTNETCORE|5.0",
       "metadata": {
         "description": "Runtime stack of web app"
@@ -64,7 +62,7 @@
       },
       "properties": {
         // https://stackoverflow.com/questions/59901840/what-is-the-reserved-argument-in-azure-app-service-plan-terraform-config
-        "reserved": true // Must have for Linux app
+        "reserved": true // Required for Linux app
       },
       "tags": {
         "displayName": "[variables('hostingPlanName')]"
