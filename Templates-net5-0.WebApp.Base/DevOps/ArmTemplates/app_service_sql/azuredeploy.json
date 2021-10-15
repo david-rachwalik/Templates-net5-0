@@ -86,7 +86,8 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "siteConfig": {
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
-          "minTlsVersion": "1.2"
+          "minTlsVersion": "1.2",
+          "alwaysOn": true
         }
       },
       "tags": {
