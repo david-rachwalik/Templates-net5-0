@@ -3,8 +3,11 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core
 
 trigger:
-- master
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github#paths
+  branches:
+    include:
+    - master
+    - releases/*
+  # https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github#paths
   paths:
     include:
     - Templates-net5-0.Base.WebApp
