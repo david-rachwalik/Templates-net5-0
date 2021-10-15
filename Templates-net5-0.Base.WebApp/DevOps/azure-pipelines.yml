@@ -11,9 +11,8 @@ trigger:
 
 variables:
   tag: '$(Build.BuildId)'
-  dotnetFramework: "net5.0"
   dotnetRuntimeVersion: "5.0.x"
-  projectName: "ContosoUniversity"
+  dotnetFramework: "net5.0"
 
 stages:
 - stage: Build
