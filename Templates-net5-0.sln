@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31727.386
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates-net5-0.Base.WebApp", "Templates-net5-0.Base.WebApp\Templates-net5-0.Base.WebApp.csproj", "{5E6040A1-173D-46D5-B61C-C618FFBA61F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templates-net5-0.WebApp.Base", "Templates-net5-0.Base.WebApp\Templates-net5-0.WebApp.Base.csproj", "{5E6040A1-173D-46D5-B61C-C618FFBA61F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates-net5-0.SqlDb.WebApp", "Templates-net5-0.SqlDb.WebApp\Templates-net5-0.SqlDb.WebApp.csproj", "{7BCA1EAA-F89A-4DDE-B52D-22C26C500338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templates-net5-0.WebApp.SqlDb", "Templates-net5-0.SqlDb.WebApp\Templates-net5-0.WebApp.SqlDb.csproj", "{7BCA1EAA-F89A-4DDE-B52D-22C26C500338}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Templates-net5-0.Base.WebApi", "Templates-net5-0.Base.WebApi\Templates-net5-0.Base.WebApi.csproj", "{33A3D473-FEF9-40C1-8275-B28009442AFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Templates-net5-0.WebApi.Base", "Templates-net5-0.Base.WebApi\Templates-net5-0.WebApi.Base.csproj", "{33A3D473-FEF9-40C1-8275-B28009442AFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5E6040A1-173D-46D5-B61C-C618FFBA61F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +55,11 @@ Global
 		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|x64.Build.0 = Release|Any CPU
 		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|x86.ActiveCfg = Release|Any CPU
 		{33A3D473-FEF9-40C1-8275-B28009442AFE}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E54A1DB-C1D4-4761-B30D-B52B65AC3FE2}
 	EndGlobalSection
 EndGlobal
