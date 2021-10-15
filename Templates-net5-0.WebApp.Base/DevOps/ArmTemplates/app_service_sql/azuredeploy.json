@@ -87,7 +87,7 @@
         "siteConfig": {
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
           "minTlsVersion": "1.2",
-          "alwaysOn": true
+          "alwaysOn": "[if(equals(parameters('sku'), 'F1'), 'false', 'true')]"
         }
       },
       "tags": {
